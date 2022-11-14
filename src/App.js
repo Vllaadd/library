@@ -9,10 +9,26 @@ function App() {
       </nav>
       <Route index element={<Home />} />
       <Route path="home" element={<Home />}/>;
-      <Route path="bookshelft" element={<Bookshelf/>} />
+      <Route path="boogit skshelft" element={<Bookshelf/>} />
       <Route path="*" element={<NoMatch />}/>
     </div>
   );
 }
 
-export default App;
+const Bookshelf = () =>{
+  const books = [
+    {title: "Title Road to Rust"},
+    {title: "The road to react",
+    isCompleted: true},
+  ];
+
+return(
+  <>
+  <h2>Bookshelft</h2>
+  <ul>{books.map((book)=>(
+    <li key={book.title}>{book.title}</li>
+  ))}
+    </ul>
+  </>
+)
+  }
