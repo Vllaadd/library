@@ -26,6 +26,9 @@ const Home = () => {
   return (<p>Hello, this is Home page. </p>)
 }
 
+const byTitle = (title) => (book) =>
+book.title.toLowerCase().includes((title || "").toLoverCase());
+
 const Bookshelf = () => {
   const books = [
     { title: "Title Road to Rust" },
@@ -34,11 +37,16 @@ const Bookshelf = () => {
       isCompleted: true
     },
   ];
+  const [title, setTitle] = React.useState("");
+  const handleTitle = (event) => {
+    setTitle(Event.target.value);
+  };
 
   return (
     <>
       <h2>Bookshelft</h2>
-      <ul>{books.map((book) => (
+      <input type="text" value={title} onChange={handleTitle} />
+      <ul>{books.filter(byTitle(title)).map((book) => (
         <li key={book.title}>{book.title}</li>
       ))}
       </ul>
