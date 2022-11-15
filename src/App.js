@@ -1,4 +1,9 @@
-import { Routes, Route, Link } from "react-router-dom";
+import * as React from "react";
+import {
+        Routes, 
+        Route, 
+        Link    
+                  } from "react-router-dom";
 
 function App() {
   return (
@@ -11,7 +16,7 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />;
-        <Route path="boogit skshelft" element={<Bookshelf />} />
+        <Route path="bookshelf" element={<Bookshelf />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </div>
@@ -27,7 +32,7 @@ const Home = () => {
 }
 
 const byTitle = (title) => (book) =>
-book.title.toLowerCase().includes((title || "").toLoverCase());
+book.title.toLowerCase().includes((title || "").toLowerCase());
 
 const Bookshelf = () => {
   const books = [
@@ -39,7 +44,7 @@ const Bookshelf = () => {
   ];
   const [title, setTitle] = React.useState("");
   const handleTitle = (event) => {
-    setTitle(Event.target.value);
+    setTitle(event.target.value);
   };
 
   return (
